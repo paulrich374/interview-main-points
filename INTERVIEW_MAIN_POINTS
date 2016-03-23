@@ -1,0 +1,127 @@
+O. Must Master
+		1. cassandra, 
+		2. HDFS, 
+		3. Zookeeper, 
+		4. Kafka, 
+		5. Storm 
+		读懂documentation 通吃。排名分先后：）
+-I. Algorithm Topics
+    1. Recursion -> DP
+  	2. Special Data Structure
+  	3. AA DPI/DPII
+  	4. NOTE organize		
+-I. Data Structure Topics [http://itindex.net/detail/40648-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84]
+    1. 	Trie
+  	2. 	Bloom Filter														[Cassandra]
+  	3. 	Rope
+  ??4. 	Skip List																[Cassandra]
+  	5. 	Spatial Indexes - R-Trees and KD-Trees
+  	6. 	Bit Array
+  ??7. 	Zippers
+  	8. 	Suffix Tries	
+  ??9. 	Splay Trees															wiki地址
+  ??10. Heap-Ordered Search Trees
+    11. Adjacent Lists
+  ??12. Lock-Free
+    13. Union Find  
+  ??14. Fibonacci Stack
+    15. BSP Trees: 3D Render
+    16. Huffman Tree: Coding
+  ??17. Finger Trees: function, 								wiki地址
+  ??18. Ring Buffer
+  ??19. Merkle Trees														[Dynamo]
+  ??20. CuKoo Hashing
+  ??21. Min-Max- Heap
+  ??22. Cache Oblivious datastructures
+  ??23. Left learning Red-Back Trees
+  ??24. Bootstrapped skew-binomial heaps
+    25. Interval Trees 													[Cassandra]
+-I. Must MAster Before Onboard
+		1. Edureka Android Development
+		2. Edureka iOS Swift Development	
+		
+	
+IV.	项目准备，选一个自己从头到尾做过的项目，先准备一个简单介绍，然后根据根据下面
+		6点准备具体内容
+		1. 	Most challenging:  
+							complexity legacy system, 
+							no testing, 
+							scalability
+		2. 	What you learn:   
+							unit test, 
+							decoupling, 
+							gray deployment
+		3. 	Most interesting:  
+							automatically test framework
+		4. 	Hardest bug:  
+							race condition /  
+							dead lock
+		5. 	Conflict with teammates: 
+							configuration migration
+		6. 	Failure: 
+							full dial up cause big issue 
+							// don't be too optimist 
+							// be careful all the time 
+V.		1. 在公司做的project可以适当放大，把没做完的也加进去，被interviewer提出问题， 
+			2. 如果这个部分你没有做，也要跟他说你可以怎么"  优化  "。                                           
+			3. 要有over view on整个project，尽量把握细节，讲的时候往你擅长的部分引到，这一点让人感觉你有ownership。
+				 我的步奏是
+						1.	先介绍整个框架结构，
+						2.	project的motivation是什么，
+						3.	scale起来瓶颈在哪，																					Most challenging
+						4. 	sub-project拆出来是怎么分的，为什么这么分，之间有什么dependency, 	What you learn
+						5.	sub-project我怎么分配顺序的。
+			Design题一靠平常积累，二靠多看open source stack，当然要看细节和实现，光知道
+			大概没用的。			
+I. Coding
+		1. 	问问题，理解题意，弄清楚输入、输出、流程，磨刀不误砍柴工
+		2. 	多想几种解法(从brutal force开始)，简单例子，test case，画图 5到10分钟
+		3. 	与面试官交流想法     2分钟
+		4. 	Pseudo code 在草稿纸上 , 分成子函数，模块化，将复杂问题交给子函数
+		5. 	Real code  在答题板上          10到20分钟
+		6. 	Verify, 检查错误，特殊条件，边界条件  5分钟 
+
+II. OO Design
+		1. 	需求分析，问问题，列出input, output, use cases
+		2. 	讨论性能要求和Specification, 讨论不同方案trad-off, 方便读还是方便写， 
+				push 还是pull来发送更新
+		3. 	分析流程，将用use cases转换成use scenario, 可以用(Given, When, Then)关键
+				词描述
+    		eg: 取款流程
+    				Give a person has a bank account with balance 100
+    				When the person withdraw 30
+    				Then the balance will be changed to 70
+		4. 	根据use scenario设计data model
+    				将上面例子中的名词抽取出来作为对象或属性，动作抽取作为方法
+     				class Person{
+          			long personId;
+          			List<BankAccount> accounts; 
+     				}
+     				class BankAccount{
+          			long accountId
+          			double balance;
+     				}
+     				class AccountService{
+          			boolean withdraw(long personId, long accountId, double amount){}
+          			double deposits(long personId, long accountId, double amount){}
+          			double getBalance(long personId, long accountId)
+     				}
+		5. 	然后考虑高并发情况下，如何提升Scalability. 
+								可以往LoadBalance, 
+										Partition/Shading，
+										cache等方面考虑, 
+								讨论各种方式的优缺点
+III.大多数题，解题的时候，按三步走：
+               a. 如果数据量小，如何在单机上实现。
+               b. 如果数据量大，如何sharding data，如何实现scalability
+               c. Fault tolerance，考虑有node failure和message loss的时候这么处理。
+
+
+
+VI. Malleneous
+binary tree inorder traversal	:	both recursively and iteratively
+Toplogical sorting 						: both BFS and DFS
+Recursion to DP								: 1. shortest palindrom operation 
+																2. unique path(cc150) 
+																3. climb steps
+																4.  
